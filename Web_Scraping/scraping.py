@@ -1,6 +1,5 @@
 #Scraping data from a webpage using Selenium
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 def get_drvr():
@@ -13,8 +12,8 @@ def get_drvr():
   options.add_experimental_option("excludeSwitches", ["enable-automation"])
   options.add_argument("disable-blink-feature=AutomationControlled")
 
-  driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-  driver.get("https://automated.pythonanywhere.com")
+  driver = webdriver.Chrome(options=options)
+  driver.get("http://automated.pythonanywhere.com")
   return driver
 
 
@@ -25,4 +24,4 @@ def main():
   return element.text
 
 
-print(main())
+print(f'{main()}')
